@@ -1,15 +1,14 @@
 services:
   - docker
-
 env:
   global:
     - DOCKER_COMPOSE_VERSION=1.23.2
-    - secure: "Dg2lEEVGX4gCC9TX2NmkrMomoT+pNnd0vSgwzYV1BLKAEcaPUaglIC3Ce7gMWGxyKwlIUySfcDL3Jqe+a/eWitVtfWslHe5o9QDbSxuYXmwi30AA5wtssL7O8QCaqPWDxtWNq1et5J7M+Br/5boIlMOv3DRDoIAO/4S4JxDx62rZU5l9S0KAaJTb68ZND5HGcZWJXWu7t4t1uChi8eE5yL2W+PSTGMGRRyXwzJ87XaiR/+RBwpEs00+9+pmB1ZvYYrgTand5W51bUYnrkCqtqDaWzASo+kE4lH88iA5q6vQnLs2WSflvpNfDtM0OgiD8WhP/ie/IKdiJ9r8L3sIEZvRAE+6zuHM8l4ypxIjNdZJh5P6ZpN1z+ZjpG0cJx7mlcUDuWPyIrIvrtBgRtIWWfn8QOwiYqTFc3JtJl9ksnIUWErrIoH7Dl5gCxGvt+3s3XjdICIzLU6II1Q4lZQoRtWEGP0G2RU+kHFdOAeS19i3ZsyDMeWd+/yvHrd/SFnjm8IBXxeSrxUCu6eaSWbkrkQ/Ho1+kiLh602yMWPPJfrvtFKpNrBxvRGXxNe5sDTaBaqIiZtaCinOeJYswZNen9KepD5o6AHEJXQhNYemoHvFaEicL/B8Rur2ITZaGriI9gxtafFY05q4iIyeC27IZzvJGtYTL2mti8z4dZTjWmYQ="
-    - secure: "jhCAziN6ZAFr+A0wa0ksnsRn8ZonhQv5LZK7cRdh/btP0PxXBmZxezJ8O/XvsqgYHkdwtBzG1lMHMRB8Un6aObKklvrLEFv4QK1Rl1EVr94w9EasOMG2TxZ5rDM4RBYwvsxiBHUfZLj+OlLfBbFhycqVGcIy3XkMF1wfmP2im3acTuyuQA9kw7I3jcSYja1K6++KDRhQMkjyYI/6wOPZ2znU5Dxt3iG7eHKkEGgB6pOi3oYTmA1AGWL+QOVqDaWKgD23BlTaZ0Yr1oc3n9p1I5mzotaw4JXDIuSZMMqtpAkeCinuzjC5/lKAuq/rxeHSNXVYvQST+1pQ5hqKxqZgZFVLr5+GTMnDL57yPQe/XajG2XDfBfQXliO+17tFkPBmCaUe1vnZBzITYiqQe1tsCTgI1TXYIlGnSXbQmzQ/2NptSe6XcxFSzPBE3rG+g7g1nlqMPZGQ59H6t7e3/L5G3/2MGqa6tNmmvshRsrRxpc0f9qLVYOi0Q6sqF/USE9CqyGppm6rHFKGJAzdAqo+y8SjUsTj1PnCM/nC8bm8+VMVDeprjOlxXOkb/+gBnKdmm8f4RxlB9NT5aLVtBBHtIDvB8anOoSbQLJEhXtzwumC/7FIGyNAFB/0iIZyZrF8Nelr5kY0CdDXovqozQkGLqGuHRuanCrarTfFkbQMFv5Yw="
-
+    - secure: uNl8l7/Mh6RzQ2SYb5Jws3wSXz1f6XaS6XQu5lBCf/VERqzBqTlKyROJOm08EFEPCuxA7c4FdRo/rtyzjLujf2kPJ+SWowRBsCf1LXuydOv00T7vS1hIsDrwEYCCvYJ1ide4Su00OoycJ5LEGt8eU3ETqgYrTiUbkGjRfa3LB7VOZV11ozhwHe/MQfRWq5NkzG+HXyJ6DVpzAr9DJpsP6SuaMh44X66zHsq1A1cJh5LfV9pgJkwyAWi9seO5n6lKuZh2SwsovQlVZIGsvYJR0rWl3xSD/8oV9MEIrTyvADGnbpQSI+o7NoFjrLCEIKiSuFc2wacI0XqbbYevXf/lZfs/j4nXk+mZ3GUX8ObnCJFDWl9a9JCcgR+uZVL8KuTwiBSToLXevlSmIenRhBI8vcE5oZcp+CzgFdlKwaqd1W0K5eWhw434Uqksh8tNnqxRILZ6hIJgb985O7UvY+N5qonQAyUNbo7T919WdR4UvL0vaB6puBmhlfCpQ93demDwvQySKnn8E9YnomClVS91BBFXB1k4P8LjQwmWqe51eHkN1YunRKzHnZd9RLH6HIQilqzq4oy2XIq+BzYlxDQWEoAuhe/B9mwVJrMQS/+wLx5ufmsKvf141BXNBLufWSz9GmPqpnvOq1C3vvBL7BjEXaPUfy/xwpbNU/56SrRf/8g=
+    - secure: AZGhwGMHp/KPc2Reyt9GJiddsp5X2+JaNJCb/c7kRGiJuh/DhXbM7wSMH5LGq12sRwv74Enpx2vAkf+NtWGwjQp3CpB8UrW/cYVymyqKST0/WJ4cbC6aU+Mmz+9aHZRp7mU6c0yxfKHuoyka3mYpmBkZ+HalP4bEA19gub4vuTxB0ZbsG+uCXvigyUDlHEii6oDtgj84BubT1fcSpdWK+bTz4gaMajcpOQhEa5A/yagIBopAmWZE53NWKeZDB8c4phFBxIgSSs48abUCgtcQChIG52hneL4RqheH+/75MFtlN+GdKNtn8/LesWIdSU+FBrd8N6/UO/ObIWMpLIORZjJZ2mf/xjhgetsBgS5iuMRLStwjvCi7RdzmS7JkcEckbhLXLce+jeUP0FO58l5l86XWOePSVqMFciCrqaeDBDDb5Gx8kj1jFLYeZSydlczx1siL5YjPRDNSisSRXEbZahFpkZMkbWwHFhsHLwTx64dqrGVjhdVyTHxtyywyAQRsiABtt1rn4jL958dkh78+Satj806fopzvG3q0mSObYKdtyuLl9aKGTTipiebPYdWPslM/2V6bHSAUm3PONeFe89HIQHVVpqEwcJTezfjiZCnKLLCuMSWJ2AGEyspUnIB4PdMxyrx1eoPq5fS5heLca6X1HudE8jDzXXNaXxqsCsI=
 before_install:
   - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+    -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - docker --version
@@ -18,18 +17,17 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - export GIT_SHA=`git rev-parse --short HEAD`
   - echo "Building commit $GIT_SHA"
-
 jobs:
   include:
     - stage: tests
-      name: "Unit Tests"
+      name: Unit Tests
       script:
         - cd ch4
         - docker-compose build db
         - docker-compose build test-postgresql
         - docker-compose run test-postgresql
     - stage: tests
-      name: "Static Analysis"
+      name: Static Analysis
       script:
         - cd ch4
         - docker-compose build static-analysis
@@ -49,4 +47,4 @@ jobs:
         - provider: script
           script: docker push jaimebuelta/thoughts-backend:$TRAVIS_TAG
           on:
-            tags: True
+            tags: true
