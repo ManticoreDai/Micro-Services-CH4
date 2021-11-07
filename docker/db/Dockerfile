@@ -30,10 +30,10 @@ RUN apk add python3-dev build-base linux-headers gcc libffi-dev
 WORKDIR /opt/code
 
 RUN mkdir -p /opt/code/db
-RUN find /opt/code/db -type f -exec chmod 777 {} \;
 # Add postgres setup
 ADD ./docker/db/postgres-setup.sh /opt/code/db/
 # RUN chmod 777 /opt/code/db/postgres-setup.sh
+RUN find /opt/code/db -type f -exec chmod 777 {} \;
 RUN /opt/code/db/postgres-setup.sh
 
 ## Install our code to prepare the DB
@@ -48,6 +48,7 @@ ADD ./docker/db/* /opt/code/db/
 
 ## get the db ready
 # RUN chmod 777 /opt/code/db/prepare_db.sh
+RUN find /opt/code/db -type f -exec chmod 777 {} \;
 RUN /opt/code/db/prepare_db.sh
 
 # Start the database in normal operation
