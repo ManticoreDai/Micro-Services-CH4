@@ -89,8 +89,6 @@ jobs:
           script: docker push hongminghsieh/ch4:$TRAVIS_TAG
           on:
             tags: true
-    - stage: deploy
-      deploy:
         - provider: heroku
           api_key:
             secure: "nmOQz+qKwskBe9KZTHTeifGNsETuYbWRujKySpZifTZMh+X87vylq0JDB5QdZV0RuCfsrpsE+j+s4Awf5coeINKQD3TytcqGdYtfbncpfrYlkgJXFBi/XovQBk37OoAGAxSsul6SIX7Lb5de31CC1PV0/9+TbpaEJMGitm3zx0palM+3k0ChVVZK3jB71MjH3tAUY8f35InOfpVLsJDzVOOOWR3XzUdh+nizS2wXbjP775pXeFpLmaH8Jw+tx8qtxVkFEwwoJbLU/AA5IklqZlo4IJfvDgMOz0t1On5x8CmU8JMiswC32MUhGAEl4W6utV3HgtiU0lN/mbDt+jikHbkFP3nHsvRBsuP7zXlCR52QIeu7SgKj1rJ7DqpToiGGs4EeqjIqlaIyEc8/Hq+7rqSaOgzHSMyEPI/QawkWp3wc9p6+81dLmP9yE9tk/bFwDfFlNm9REM7ToO0n9XUp8VwUY3q0v79rOaZRv3NF2xdpOfGjrD2lAFCDF8h2a25hF9eSzQO1YWy8Wc82d6QLHNIu2GwdhAPSwgqx5dxeAlshTnjrsXvzYY9PGc8TaewbneQjGRkkKsYLpAsI7zMbk5Qrn6f0oIhubYEEogEFLM/uPSDazjQ6BqewJ1wAA63pTbaskKIAIvFnBFn1fznrP/FFhdkAnbEJQot/7CLLufw="
