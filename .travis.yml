@@ -77,15 +77,15 @@ jobs:
     - stage: push
       script:
         - docker-compose build server
-        - docker tag thoughts_server:latest jaimebuelta/thoughts-backend:$GIT_SHA
-        - docker push jaimebuelta/thoughts-backend:$GIT_SHA
-        - docker tag thoughts_server:latest jaimebuelta/thoughts-backend:$TRAVIS_BRANCH
+        - docker tag thoughts_server:latest hongminghsieh/ch4:$GIT_SHA
+        - docker push hongminghsieh/ch4:$GIT_SHA
+        - docker tag thoughts_server:latest hongminghsieh/ch4:$TRAVIS_BRANCH
       deploy:
         - provider: script
-          script: docker push jaimebuelta/thoughts-backend:$TRAVIS_BRANCH
+          script: docker push hongminghsieh/ch4:$TRAVIS_BRANCH
           on:
             branch: master
         - provider: script
-          script: docker push jaimebuelta/thoughts-backend:$TRAVIS_TAG
+          script: docker push hongminghsieh/ch4:$TRAVIS_TAG
           on:
             tags: true
