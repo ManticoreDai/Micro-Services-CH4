@@ -64,7 +64,6 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - export GIT_SHA=`git rev-parse --short HEAD`
   - echo "Building commit $GIT_SHA"
-  - heroku container:login
 jobs:
   include:
     - stage: tests
@@ -81,13 +80,11 @@ jobs:
     - stage: push
       script:
         - docker-compose build server
+
         - docker tag thoughts_server:latest hongminghsieh/ch4:$GIT_SHA
         - docker push hongminghsieh/ch4:$GIT_SHA
-        - docker tag thoughts_server:latest hongminghsieh/ch4:$TRAVIS_BRANCH
 
-        - docker tag thoughts_server:latest registry.heroku.com/advance-tech-ch4/web
-        - docker push registry.heroku.com/advance-tech-ch4/web
-        # - heroku container:push web --app advance-tech-ch4
+        - docker tag thoughts_server:latest hongminghsieh/ch4:$TRAVIS_BRANCH
       deploy:
         - provider: script
           script: docker push hongminghsieh/ch4:$TRAVIS_BRANCH
