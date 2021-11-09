@@ -1,4 +1,4 @@
-# 沒有拆分成 stage 跟 jobs (執行時間 Ran for 3 min 58 sec)
+# 沒有拆分成 stage 跟 jobs (執行時間 Ran for 3 min 58 sec) test
 services:
   - docker
 env:
@@ -87,6 +87,7 @@ script:
 #         - docker tag thoughts_server:latest hongminghsieh/ch4:$GIT_SHA
 #         - docker push hongminghsieh/ch4:$GIT_SHA
 #         - docker tag thoughts_server:latest hongminghsieh/ch4:$TRAVIS_BRANCH
+
 #         - docker tag thoughts_server:latest registry.heroku.com/advance-tech-ch4/web
 #         - docker push registry.heroku.com/advance-tech-ch4/web
 #         # - heroku container:push web --app advance-tech-ch4
