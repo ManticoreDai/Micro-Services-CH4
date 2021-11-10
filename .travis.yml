@@ -1,20 +1,20 @@
-# 沒有拆分成 stage 跟 jobs (執行時間 Ran for 3 min 58 sec) test
-# services:
-#   - docker
-# env:
-#   - DOCKER_COMPOSE_VERSION=1.23.2
-# before_install:
-#   - sudo rm /usr/local/bin/docker-compose
-#   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-#   - chmod +x docker-compose
-#   - sudo mv docker-compose /usr/local/bin
-#   - docker --version
-# script:
-#   - docker-compose build db
-#   - docker-compose build static-analysis
-#   - docker-compose build test-postgresql
-#   - docker-compose run test-postgresql
-#   - docker-compose run static-analysis
+# 沒有拆分成 stage 跟 jobs (執行時間 Ran for 3 min 58 sec) test2
+services:
+  - docker
+env:
+  - DOCKER_COMPOSE_VERSION=1.23.2
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker --version
+script:
+  - docker-compose build db
+  - docker-compose build static-analysis
+  - docker-compose build test-postgresql
+  - docker-compose run test-postgresql
+  - docker-compose run static-analysis
 ###########################################################################
 
 # 建立 1個stage 包含2個jobs (執行時間 Ran for 3 min 53 sec)
@@ -44,52 +44,52 @@
 ###########################################################################
 
 # 包括 push 完成的 image 到 Docker Hub
-services:
-  - docker
-env:
-  global:
-    - DOCKER_COMPOSE_VERSION=1.23.2
-    - secure: "vI+WHPtjMxoIZjUWYY+XVxshhshVzBViYiq4Yvv56v9VMgT/rjZlt0PIV4dOxSj7TgELVcY0ehzT5ElXyCWcmTocdBSZTPPsxGtyEnPREETrNf+levNqibRf5o6iBYU27cCuQIGGuZjy4jsuXgPqR3DGexuw4VmIJ94KYKMJVicpRoCGMCZaOTUi3TzZx5luszQek8GtQ6uC/7RqZ+oe3FhcBKAOlPYg34DWyIqliig/uegtJ47ZGGVkPwz41jCmWuQeYvR+i3W0mveAOMu+y7gNIxncBhbpeQUJHpY2jm+2Lcd9AYfpQLdcw5DJpIGUxTDamA/zbV/kY8YLwoW3b/EKU8tyjtaj9zUTuACPujpeb6mHbX/5MgaiI/8oxOij1pNJ8V3a06N0cfdMDUejQb0IKbQXHEeEbIQpYjCu76/y8NsMdjb0lKnhg6vTV3LcrP5VSPFy8Y9pgwYGL25N71THhg3DGVA92zictWQefowexcXxk5Iuj+tBhsraVo2RhhSmSy/FGhLqvm7MCTpWqkrP2rm3it/6y/yg93w93qaizFU/MzvAJBXJEt31Y8L0Dk/c8QR1HNBrQM5ylSHr9Pc1exB6qDvyEVj8tn5U/5C/AKBONlCzI7iYdxQ3u62v373zBcMGv4KzjfW6OiC70Ct54O43o1tMbH6jtz5pGZ4="
-    - secure: "eLtE3zTwRegz7huEAczQM6YMTYg0OEz/rqnAlJ/lyNkaa5DrKa5FyV/HZ65MSsY8Hzh91KfbuqcWDR/9E8jJ+RGTgyvF4l6BVhQNFXueMOFqyUKUHLj3XRBdkSi3Aukk4iDbj/FLUN2B7aVh0JjFpjuHgWtpW7hcYfMg2pLZwPLKL3Vrkzq+fL4nIF/wYtzD5W8+ata80Arx0tM7yJjhvuCp7zP20jyb2VtysXUhMYXr+PiLppHA6oNdZM5EFBI3Y/qWjDYU8fzOMREp/Dqn8JysqhX6HBCXa9N/k7nj7jgQTd1ueKwswxHSWlFTUQVNFZUK820b6cAnGgT+0hGowmjhcGOEFUG2TE6qY5TNM5e/v466uo4hhv0zRrjSBVrOx5ebg0wmo4cR5DYAU6M1T8TJHc0OAQfO++8kKSdVgmuxUAe0W5QttFlPJqZiNdCup0R5oIsdaxC01/cu5hNCP11P1LvxswanEvDCkmedFv9IYUf3C/G7sn51T71h4L0cxOaTigQTchD8r4kU6FJqIJBxS7FkE6Uo4TqBRcZ05ZH1CKksZYT4re85PEHu00o+ZbhMYcdBHNWFptJlmZS9KvisUYA+CJ/RLDPSS+DWIuxbFAyqz+pQkRaeADThceeWht8RPgCoMFmdrT5+1JXmF141pt7pwkahSCeh+vyIV7w="
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
-    -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker --version
-  - docker-compose version
-  - echo "Login into Docker Hub"
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - export GIT_SHA=`git rev-parse --short HEAD`
-  - echo "Building commit $GIT_SHA"
-jobs:
-  include:
-    - stage: tests
-      name: "Unit Tests"
-      script:
-        - docker-compose build db
-        - docker-compose build test-postgresql
-        - docker-compose run test-postgresql
-    - stage: tests
-      name: "Static Analysis"
-      script:
-        - docker-compose build static-analysis
-        - docker-compose run static-analysis
-    - stage: push
-      name: "Push to Docker Hub"
-      script:
-        - docker-compose build server
-        - docker tag thoughts_server:latest hongminghsieh/ch4:$GIT_SHA
-        - docker push hongminghsieh/ch4:$GIT_SHA
+# services:
+#   - docker
+# env:
+#   global:
+#     - DOCKER_COMPOSE_VERSION=1.23.2
+#     - secure: "vI+WHPtjMxoIZjUWYY+XVxshhshVzBViYiq4Yvv56v9VMgT/rjZlt0PIV4dOxSj7TgELVcY0ehzT5ElXyCWcmTocdBSZTPPsxGtyEnPREETrNf+levNqibRf5o6iBYU27cCuQIGGuZjy4jsuXgPqR3DGexuw4VmIJ94KYKMJVicpRoCGMCZaOTUi3TzZx5luszQek8GtQ6uC/7RqZ+oe3FhcBKAOlPYg34DWyIqliig/uegtJ47ZGGVkPwz41jCmWuQeYvR+i3W0mveAOMu+y7gNIxncBhbpeQUJHpY2jm+2Lcd9AYfpQLdcw5DJpIGUxTDamA/zbV/kY8YLwoW3b/EKU8tyjtaj9zUTuACPujpeb6mHbX/5MgaiI/8oxOij1pNJ8V3a06N0cfdMDUejQb0IKbQXHEeEbIQpYjCu76/y8NsMdjb0lKnhg6vTV3LcrP5VSPFy8Y9pgwYGL25N71THhg3DGVA92zictWQefowexcXxk5Iuj+tBhsraVo2RhhSmSy/FGhLqvm7MCTpWqkrP2rm3it/6y/yg93w93qaizFU/MzvAJBXJEt31Y8L0Dk/c8QR1HNBrQM5ylSHr9Pc1exB6qDvyEVj8tn5U/5C/AKBONlCzI7iYdxQ3u62v373zBcMGv4KzjfW6OiC70Ct54O43o1tMbH6jtz5pGZ4="
+#     - secure: "eLtE3zTwRegz7huEAczQM6YMTYg0OEz/rqnAlJ/lyNkaa5DrKa5FyV/HZ65MSsY8Hzh91KfbuqcWDR/9E8jJ+RGTgyvF4l6BVhQNFXueMOFqyUKUHLj3XRBdkSi3Aukk4iDbj/FLUN2B7aVh0JjFpjuHgWtpW7hcYfMg2pLZwPLKL3Vrkzq+fL4nIF/wYtzD5W8+ata80Arx0tM7yJjhvuCp7zP20jyb2VtysXUhMYXr+PiLppHA6oNdZM5EFBI3Y/qWjDYU8fzOMREp/Dqn8JysqhX6HBCXa9N/k7nj7jgQTd1ueKwswxHSWlFTUQVNFZUK820b6cAnGgT+0hGowmjhcGOEFUG2TE6qY5TNM5e/v466uo4hhv0zRrjSBVrOx5ebg0wmo4cR5DYAU6M1T8TJHc0OAQfO++8kKSdVgmuxUAe0W5QttFlPJqZiNdCup0R5oIsdaxC01/cu5hNCP11P1LvxswanEvDCkmedFv9IYUf3C/G7sn51T71h4L0cxOaTigQTchD8r4kU6FJqIJBxS7FkE6Uo4TqBRcZ05ZH1CKksZYT4re85PEHu00o+ZbhMYcdBHNWFptJlmZS9KvisUYA+CJ/RLDPSS+DWIuxbFAyqz+pQkRaeADThceeWht8RPgCoMFmdrT5+1JXmF141pt7pwkahSCeh+vyIV7w="
+# before_install:
+#   - sudo rm /usr/local/bin/docker-compose
+#   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+#     -s`-`uname -m` > docker-compose
+#   - chmod +x docker-compose
+#   - sudo mv docker-compose /usr/local/bin
+#   - docker --version
+#   - docker-compose version
+#   - echo "Login into Docker Hub"
+#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#   - export GIT_SHA=`git rev-parse --short HEAD`
+#   - echo "Building commit $GIT_SHA"
+# jobs:
+#   include:
+#     - stage: tests
+#       name: "Unit Tests"
+#       script:
+#         - docker-compose build db
+#         - docker-compose build test-postgresql
+#         - docker-compose run test-postgresql
+#     - stage: tests
+#       name: "Static Analysis"
+#       script:
+#         - docker-compose build static-analysis
+#         - docker-compose run static-analysis
+#     - stage: push
+#       name: "Push to Docker Hub"
+#       script:
+#         - docker-compose build server
+#         - docker tag thoughts_server:latest hongminghsieh/ch4:$GIT_SHA
+#         - docker push hongminghsieh/ch4:$GIT_SHA
 
-        - docker tag thoughts_server:latest hongminghsieh/ch4:$TRAVIS_BRANCH
-      deploy:
-        - provider: script
-          script: docker push hongminghsieh/ch4:$TRAVIS_BRANCH
-          on:
-            branch: master
-        - provider: script
-          script: docker push hongminghsieh/ch4:$TRAVIS_TAG
-          on:
-            tags: true
+#         - docker tag thoughts_server:latest hongminghsieh/ch4:$TRAVIS_BRANCH
+#       deploy:
+#         - provider: script
+#           script: docker push hongminghsieh/ch4:$TRAVIS_BRANCH
+#           on:
+#             branch: master
+#         - provider: script
+#           script: docker push hongminghsieh/ch4:$TRAVIS_TAG
+#           on:
+#             tags: true
